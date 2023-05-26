@@ -1,0 +1,48 @@
+CreateSvcByNetmiko_v3.py 
+## Combobox 추가
+ # Create Windows
+    window = tk.Tk()
+
+    # config the root window
+    window.geometry('300x200')
+    window.resizable(False, False)
+    window.title("UNI List")
+
+    # Create Combobox 
+    combobox_values = evpluni_list
+    selected_value = tk.StringVar()
+    combobox = ttk.Combobox(window, values=combobox_values, textvariable=selected_value)
+    combobox.pack()
+
+    # Function
+    def get_selected_value():
+        getvalue = selected_value.get()
+        global selUni
+        selUni = getvalue
+
+    # Create button
+    button = tk.Button(window, text="selected_uni", command=get_selected_value)
+    button.pack()
+
+    # Excute windows
+    window.mainloop()
+
+
+
+
+CreateSvcByNetmiko_v4.py 
+## EVPL UNI 분류 하는 function 추가.
+    evpluni_list =[]
+    for uni in connection.send_command("show ether uni brief").splitlines()[3:-1]:
+        if uni.split()[7] == 'No' and uni.split()[9] == 'Yes':
+            evpluni_list.append(uni.split()[0]) 
+			
+
+
+CreateSvcByNetmiko_v5.py
+## add check option for uni and nni
+## add comment
+
+
+CreateSvcByNetmiko_v6.py
+## create connect() function to optimize the code

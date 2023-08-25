@@ -46,3 +46,7 @@ CreateSvcByNetmiko_v5.py
 
 CreateSvcByNetmiko_v6.py
 ## create connect() function to optimize the code
+
+
+CreateSvcByNetmiko_v8.py
+## Modify to configure ROE configuration in Ethernet mode.
